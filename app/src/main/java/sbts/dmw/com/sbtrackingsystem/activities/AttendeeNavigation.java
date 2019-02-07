@@ -1,6 +1,5 @@
 package sbts.dmw.com.sbtrackingsystem.activities;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,10 +10,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import sbts.dmw.com.sbtrackingsystem.MapsActivity;
 import sbts.dmw.com.sbtrackingsystem.R;
 import sbts.dmw.com.sbtrackingsystem.classes.SessionManager;
 import sbts.dmw.com.sbtrackingsystem.fragments.AttendeeHome;
+import sbts.dmw.com.sbtrackingsystem.fragments.MapsFragment;
 import sbts.dmw.com.sbtrackingsystem.fragments.StudentList;
 
 public class AttendeeNavigation extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -63,15 +62,16 @@ public class AttendeeNavigation extends AppCompatActivity implements NavigationV
                 break;
             }
 
-            case R.id.nav_profile : {
+            case R.id.nav_profile: {
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_frame, new AttendeeHome()).commit();
                 drawerLayout.closeDrawer(GravityCompat.START);
                 toolbar.setTitle("Profile");
                 break;
             }
-            case R.id.nav_map :{
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_frame, new maps()).commit();
+            case R.id.nav_map: {
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.nav_frame, new MapsFragment()).commit();
                 drawerLayout.closeDrawer(GravityCompat.START);
                 toolbar.setTitle("Map");
                 break;

@@ -22,8 +22,8 @@ public class AttendeeHome extends Fragment {
     @Override
     public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-
         View view = inflater.inflate(R.layout.fragment_attendee_home, container, false);
-             return view;
+        return view;
+
     }
 }
