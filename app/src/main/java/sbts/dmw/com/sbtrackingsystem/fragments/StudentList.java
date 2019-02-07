@@ -68,7 +68,7 @@ public class StudentList extends Fragment {
                 }
                 sAdapter = new RecyclerViewAdapter(getActivity().getApplicationContext(), studentList);
 
-                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
                 recyclerView.setAdapter(sAdapter);
 
 

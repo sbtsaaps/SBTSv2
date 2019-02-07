@@ -24,13 +24,6 @@ public class AttendeeHome extends Fragment {
 
 
         View view = inflater.inflate(R.layout.fragment_attendee_home, container, false);
-      sList=  view.findViewById(R.id.scannerBtn);
-        sList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        return view;
+             return view;
     }
 }
