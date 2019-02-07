@@ -24,7 +24,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private List<Student> sData;
     RequestOptions option;
 
-    public RecyclerViewAdapter(Context sContext, List<Student> sData){
+    public RecyclerViewAdapter(Context sContext, List<Student> sData) {
 
         this.sContext = sContext;
         this.sData = sData;
@@ -59,7 +59,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return sData.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView student_name, student_division, student_roll_no, student_class;
         ImageView student_thumbnail;

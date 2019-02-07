@@ -1,6 +1,5 @@
 package sbts.dmw.com.sbtrackingsystem.fragments;
 
-import android.icu.text.UnicodeSetSpanner;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -33,6 +33,7 @@ public class StudentList extends Fragment {
     private JsonArrayRequest request;
     private List<Student> studentList;
     private RecyclerView recyclerView;
+    private ProgressBar loading;
     RecyclerViewAdapter sAdapter;
 
     @Nullable
@@ -42,6 +43,7 @@ public class StudentList extends Fragment {
 
         studentList = new ArrayList<>();
         recyclerView = v.findViewById(R.id.recycler_view);
+        loading = v.findViewById(R.id.loading_student_list);
 
         request = new JsonArrayRequest(getText(R.string.recycle_url).toString(), new Response.Listener<JSONArray>() {
             @Override
@@ -63,6 +65,8 @@ public class StudentList extends Fragment {
                         e.printStackTrace();
                     }
                 }
+
+                loading.setVisibility(View.GONE);
 
                 sAdapter = new RecyclerViewAdapter(getActivity().getApplicationContext(), studentList);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));

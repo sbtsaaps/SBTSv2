@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorPrimary"
+    android:orientation="vertical"
     tools:context=".activities.RegisterUserActivity">
 
     <TextView
@@ -26,9 +26,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="104dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/button_layout"
         android:text="Parent"
         android:textColor="@color/colorPrimary"
-        android:background="@drawable/button_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/role_selection"
@@ -41,9 +41,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="104dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/button_layout"
         android:text="Attendee"
         android:textColor="@color/colorPrimary"
-        android:background="@drawable/button_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/role_parent"

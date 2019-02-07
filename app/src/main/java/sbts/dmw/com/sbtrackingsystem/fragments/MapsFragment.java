@@ -42,7 +42,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
 
         mapView = view.findViewById(R.id.map);
 
-        if(mapView != null){
+        if (mapView != null) {
 
             mapView.onCreate(null);
             mapView.onResume();

@@ -23,48 +23,49 @@ public class SessionManager {
     public static final String EMAIL = "EMAIL";
     public static final String ROLE = "ROLE";
 
-    public SessionManager(Context context){
+    public SessionManager(Context context) {
         this.context = context;
-        sharedPreferences = context.getSharedPreferences(PREF_NAME,PRIVATE_MODE);
+        sharedPreferences = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         editor = sharedPreferences.edit();
     }
 
-    public void createSession(String email, String role){
+    public void createSession(String email, String role) {
         editor.putBoolean(LOGIN, true);
         editor.putString(EMAIL, email);
         editor.putString(ROLE, role);
         editor.apply();
     }
 
-    public boolean isLoggedIn(){
+    public boolean isLoggedIn() {
         return sharedPreferences.getBoolean(LOGIN, false);
     }
 
-    public void checkLogIn(){
-        if(!this.isLoggedIn()){
+    public void checkLogIn() {
+        if (!this.isLoggedIn()) {
             Intent i = new Intent(context, LoginActivity.class);
             context.startActivity(i);
             ((MainActivity) context).finish();
         }
     }
 
-    public HashMap<String, String> getUserDetails(){
+    public HashMap<String, String> getUserDetails() {
         HashMap<String, String> user = new HashMap<>();
-        user.put(EMAIL, sharedPreferences.getString(EMAIL,null));
-        user.put(ROLE, sharedPreferences.getString(ROLE,null));
+        user.put(EMAIL, sharedPreferences.getString(EMAIL, null));
+        user.put(ROLE, sharedPreferences.getString(ROLE, null));
         return user;
     }
 
-    public void logout(){
+    public void logout() {
         editor.clear();
         editor.commit();
         Intent i = new Intent(context, LoginActivity.class);
         context.startActivity(i);
-        try{
+        try {
             ((AttendeeNavigation) context).finish();
-        }catch(Exception ignored){}
+        } catch (Exception ignored) {
+        }
         /*try{
-            ((ParentActivity) context).finish();
+            ((ParentNavigation) context).finish();
         }catch(Exception ignored){}*/
     }
 }

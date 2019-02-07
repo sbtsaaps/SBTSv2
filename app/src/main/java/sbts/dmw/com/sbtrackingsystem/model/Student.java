@@ -8,9 +8,10 @@ public class Student {
     private String s_class;
     private String photo;
 
-    public Student(){}
+    public Student() {
+    }
 
-    public Student(String name, String roll_no, String division, String s_class, String photo){
+    public Student(String name, String roll_no, String division, String s_class, String photo) {
 
         this.name = name;
         this.roll_no = roll_no;

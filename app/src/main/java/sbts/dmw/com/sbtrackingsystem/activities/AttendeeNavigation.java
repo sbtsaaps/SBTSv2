@@ -28,14 +28,10 @@ public class AttendeeNavigation extends AppCompatActivity implements NavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendee_navigation);
 
-
         navigationView = findViewById(R.id.attendeeNavigationView);
         navigationView.setNavigationItemSelectedListener(this);
 
         sessionManager = new SessionManager(this);
-
-        /*HashMap<String, String> user = sessionManager.getUserDetails();
-        final String email = user.get(SessionManager.EMAIL);*/
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -44,6 +40,11 @@ public class AttendeeNavigation extends AppCompatActivity implements NavigationV
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_frame, new StudentList()).commit();
+            navigationView.setCheckedItem(R.id.nav_studentsPresent);
+        }
 
     }
 
@@ -54,33 +55,23 @@ public class AttendeeNavigation extends AppCompatActivity implements NavigationV
                 sessionManager.logout();
                 break;
             }
-
             case R.id.nav_studentsPresent: {
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_frame, new StudentList()).commit();
-                drawerLayout.closeDrawer(GravityCompat.START);
                 toolbar.setTitle("Student List");
                 break;
             }
-
             case R.id.nav_profile: {
-
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_frame, new AttendeeHome()).commit();
-                drawerLayout.closeDrawer(GravityCompat.START);
                 toolbar.setTitle("Profile");
                 break;
             }
             case R.id.nav_map: {
-
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_frame, new MapsFragment()).commit();
-                drawerLayout.closeDrawer(GravityCompat.START);
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right).replace(R.id.nav_frame, new MapsFragment()).commit();
                 toolbar.setTitle("Map");
-                break;
-
-            }
-            default: {
                 break;
             }
         }
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
