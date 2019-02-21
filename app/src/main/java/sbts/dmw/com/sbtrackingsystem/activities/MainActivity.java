@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(attendee);
                 finish();
             } else {
-                //Intent parent = new Intent(MainActivity.this,ParentActivity.class);
-                //startActivity(parent);
+                Intent parent = new Intent(MainActivity.this, ParentNavigation.class);
+                startActivity(parent);
                 finish();
             }
         }
