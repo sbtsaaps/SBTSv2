@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent attendee = new Intent(MainActivity.this, AttendeeNavigation.class);
                 startActivity(attendee);
                 finish();
-            } else {
+            } else if(role.equals("Parent")) {
                 Intent parent = new Intent(MainActivity.this, ParentNavigation.class);
                 startActivity(parent);
                 finish();

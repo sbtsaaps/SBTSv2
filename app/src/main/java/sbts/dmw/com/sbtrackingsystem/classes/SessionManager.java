@@ -10,6 +10,7 @@ import java.util.HashMap;
 import sbts.dmw.com.sbtrackingsystem.activities.AttendeeNavigation;
 import sbts.dmw.com.sbtrackingsystem.activities.LoginActivity;
 import sbts.dmw.com.sbtrackingsystem.activities.MainActivity;
+import sbts.dmw.com.sbtrackingsystem.activities.ParentNavigation;
 
 public class SessionManager {
 
@@ -64,8 +65,8 @@ public class SessionManager {
             ((AttendeeNavigation) context).finish();
         } catch (Exception ignored) {
         }
-        /*try{
+        try{
             ((ParentNavigation) context).finish();
-        }catch(Exception ignored){}*/
+        }catch(Exception ignored){}
     }
 }
